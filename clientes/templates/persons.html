@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Persons</title>
+</head>
+<body>
+    <div>
+        <button><a href="{% url 'logout' %}">logout</a></button>
+    </div>
+    <ul>
+        {% for person in persons %}
+        <li>{{ person.fullName }} - 
+            <a href="{% url 'update_person' person.id %}">Alterar</a> - 
+            <a href="{% url 'delete_person' person.id %}">Deletar</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <button><a href="{% url 'add_person' %}">Add Client</a></button>
+</body>
+</html>
