@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Persons</title>
-</head>
-<body>
-    <div>
-        <button><a href="{% url 'logout' %}">logout</a></button>
+{% extends 'base.html' %}
+
+{% block title %} List {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3 col-md-auto offset-md-3">
+            {% for person in persons %}
+            <ul class="list-group list-group-horizontal-md">
+                <li class="list-group-item"><h4>{{ person.fullName }}</h4></li>
+                <li class="list-group-item list-group-item-warning"><a href="{% url 'update_person' person.id %}"><i class="fas fa-pencil-alt"></i></a></li>
+                <li class="list-group-item list-group-item-danger"><a href="{% url 'delete_person' person.id %}"><i class="fas fa-trash-alt"></i></a></li>
+            </ul>
+            {% endfor %}
+        </div>
     </div>
-    <ul>
-        {% for person in persons %}
-        <li>{{ person.fullName }} - 
-            <a href="{% url 'update_person' person.id %}">Alterar</a> - 
-            <a href="{% url 'delete_person' person.id %}">Deletar</a>
-        </li>
-        {% endfor %}
-    </ul>
-
     <br>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3 col-md-auto offset-md-3">
+            <a class="btn btn-primary btn-sm" href="{% url 'add_person' %}">Incluir Cliente</a>
+        </div>
+    </div>
 
-    <button><a href="{% url 'add_person' %}">Add Client</a></button>
-</body>
-</html>
+{% endblock %}
