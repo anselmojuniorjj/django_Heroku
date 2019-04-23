@@ -4,12 +4,14 @@
 
 {% block main %}
     <div class="row">
-        <div class="col-sm-6 offset-sm-3 col-md-auto offset-md-3">
-            {% for person in persons %}
-            <ul class="list-group list-group-horizontal-md">
-                <li class="list-group-item"><h4>{{ person.fullName }}</h4></li>
-                <li class="list-group-item list-group-item-warning"><a href="{% url 'update_person' person.id %}"><i class="fas fa-pencil-alt"></i></a></li>
-                <li class="list-group-item list-group-item-danger"><a href="{% url 'delete_person' person.id %}"><i class="fas fa-trash-alt"></i></a></li>
+        <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 marginTopHome">
+            
+            <ul class="list-group">
+                {% for person in persons %}
+                <li class="list-group-item">{{ person.fullName }}  -  
+                    <a href="{% url 'update_person' person.id %} " class="btn btn-outline-warning"><i class="fas fa-pencil-alt"></i></a>  -  
+                    <a href="{% url 'delete_person' person.id %}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                </li>
             </ul>
             {% endfor %}
         </div>
