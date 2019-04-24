@@ -27,7 +27,13 @@
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="{% url 'list_person' %}">Lista Clientes</a>
-                          </li>                    
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'venda' %}">Cadastrar Venda</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'produto' %}">Cadastrar Produto</a>
+                    </li>                    
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {% if user.is_authenticated %}
