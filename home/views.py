@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 def home(request):
     return render(request, 'home.html')
 
+# TODO : TESTES
 def my_logout(request):
     logout(request)
     return redirect(home)

@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'bootstrapform',
     'clientes',
     'home',
-    'venda',
-    'produto',
 ]
 
 MIDDLEWARE = [
