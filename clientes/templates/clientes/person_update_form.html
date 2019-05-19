@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Alterar {% endblock %}
+
+{% block main %}
+
+<div class="jumbotron">
+    <h3 class="display-5">Cliente</h3>
+    <hr class="my-4">
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        
+        {{ form | bootstrap }}
+        
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        </form> 
+</div>
+
+   
+
+{% endblock %}
