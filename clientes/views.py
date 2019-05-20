@@ -60,20 +60,46 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class PersonList(LoginRequiredMixin, ListView):
     model = Person
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['footer'] = ' - Person List'
+        return context
 
-class PersonDetail(LoginRequiredMixin,DetailView):
+
+class PersonDetail(LoginRequiredMixin, DetailView):
     model = Person
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['footer'] = ' - Person Detail'
+        return context
+
 
 class PersonCreate(LoginRequiredMixin, CreateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'adress', 'photo']
     success_url = reverse_lazy('person_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['footer'] = ' - Person Create'
+        return context
+
 class PersonUpdate(LoginRequiredMixin, UpdateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'adress', 'photo']
     success_url = reverse_lazy('person_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['footer'] = ' - Person Update'
+        return context
+
 class PersonDelete(LoginRequiredMixin, DeleteView):
     model = Person
     success_url = reverse_lazy('person_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['footer'] = ' - Person Delete'
+        return context

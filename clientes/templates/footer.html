@@ -1,0 +1,9 @@
+{% load my_tags %}
+
+<footer class="footer">
+    <div class="container">
+        {% current_time "%Y-%m-%d %I:%M %p" as the_time %}
+        <span class="text-muted">Desenvolvimento web com Django 2.x{{ footer }} - {{ the_time }}</span>
+        <div></div>
+    </div>
+</footer>
